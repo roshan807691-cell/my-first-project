@@ -1,10 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <title>My First Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rohit Fashion</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 18px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 6px 0 0;
+        }
+
+        .hero {
+            background: white;
+            padding: 25px 15px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            margin: 5px;
+        }
+
+        .hero p {
+            color: #666;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .product {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        }
+
+        .product img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #ddd;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: #888;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 7px;
+            border: 1px solid #ccc;
+        }
+
+        .order-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello! 👋</h1>
-    <p>My first project is running.</p>
+
+<header>
+    <h1>Rohit FASHION 👕</h1>
+    <p>Stylish Clothes • Best Price • Easy Order</p>
+</header>
+
+<section class="hero">
+    <h2>🔥 New Collection 🔥</h2>
+    <p>T-Shirt और Lower घर बैठे Order करें</p>
+</section>
+
+<section class="products">
+
+    <!-- T-Shirt -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x500?text=T-Shirt"
+             alt="T-Shirt">
+
+        <h3>Premium T-Shirt</h3>
+
+        <span class="price">₹499</span>
+        <span class="old-price">₹799</span>
+
+        <select>
+            <option>Size चुनें</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+        </select>
+
+        <a class="order-btn"
+           href="https://wa.me/918076912374text=Hello%20mujhe%20Premium%20T-Shirt%20order%20karni%20hai">
+           📲 WhatsApp पर Order करें
+        </a>
+    </div>
+
+
+    <!-- Lower -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x500?text=Lower"
+             alt="Lower">
+
+        <h3>Premium Lower</h3>
+
+        <span class="price">₹599</span>
+        <span class="old-price">₹899</span>
+
+        <select>
+            <option>Size चुनें</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>XXL</option>
+        </select>
+
+        <a class="order-btn"
+           href="https://wa.me/918076912374text=Hello%20mujhe%20Premium%20Lower%20order%20karna%20hai">
+           📲 WhatsApp पर Order करें
+        </a>
+    </div>
+
+
+    <!-- T-Shirt 2 -->
+    <div class="product">
+        <img src="https://via.placeholder.com/400x500?text=Black+T-Shirt"
+             alt="Black T-Shirt">
+
+        <h3>Black T-Shirt</h3>
+
+        <span class="price">₹449</span>
+        <span class="old-price">₹699</span>
+
+        <select>
+            <option>Size चुनें</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+        </select>
+
+        <a class="order-btn"
+           href="https://wa.me/918076912374text=Hello%20mujhe%20Black%20T-Shirt%20order%20karni%20hai">
+           📲 WhatsApp पर Order करें
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Rohit Fashion</p>
+    <p>Contact • WhatsApp • Delivery Available</p>
+</footer>
+
 </body>
 </html>
