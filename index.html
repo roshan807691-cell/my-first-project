@@ -1,218 +1,341 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Fashion</title>
 
-    <title>Rohit Fashion</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
-        }
+    header {
+      background: #111;
+      color: white;
+      padding: 18px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        header {
-            background: #111;
-            color: white;
-            padding: 18px;
-            text-align: center;
-        }
+    header h1 {
+      font-size: 28px;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
+    header p {
+      margin-top: 5px;
+      color: #ccc;
+    }
 
-        header p {
-            margin: 6px 0 0;
-        }
+    .hero {
+      background: linear-gradient(135deg, #111, #444);
+      color: white;
+      text-align: center;
+      padding: 45px 20px;
+    }
 
-        .hero {
-            background: white;
-            padding: 25px 15px;
-            text-align: center;
-        }
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
 
-        .hero h2 {
-            font-size: 26px;
-            margin: 5px;
-        }
+    .hero p {
+      font-size: 17px;
+    }
 
-        .hero p {
-            color: #666;
-        }
+    .products {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
+    .card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    }
 
-        .product {
-            background: white;
-            border-radius: 12px;
-            padding: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-        }
+    .product-image {
+      height: 230px;
+      background: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+    }
 
-        .product img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            border-radius: 10px;
-            background: #ddd;
-        }
+    .info {
+      padding: 18px;
+    }
 
-        .product h3 {
-            margin: 10px 0 5px;
-        }
+    .info h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
 
-        .price {
-            font-size: 20px;
-            font-weight: bold;
-        }
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
 
-        .old-price {
-            color: #888;
-            text-decoration: line-through;
-            margin-left: 5px;
-        }
+    .size {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-        select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 7px;
-            border: 1px solid #ccc;
-        }
+    button {
+      width: 100%;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      background: #111;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-        .order-btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    button:hover {
+      background: #333;
+    }
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-    </style>
+    .cart {
+      max-width: 1100px;
+      margin: 20px auto 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    }
+
+    .cart h2 {
+      margin-bottom: 15px;
+    }
+
+    #cartItems {
+      margin-bottom: 15px;
+    }
+
+    .cart-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Rohit FASHION 👕</h1>
-    <p>Stylish Clothes • Best Price • Easy Order</p>
-</header>
+  <header>
+    <h1>🛍️ Rohit Fashion</h1>
+    <p>Style • Quality • Best Price</p>
+  </header>
 
-<section class="hero">
-    <h2>🔥 New Collection 🔥</h2>
-    <p>T-Shirt और Lower घर बैठे Order करें</p>
-</section>
+  <section class="hero">
+    <h2>नए Fashion Collection</h2>
+    <p>T-Shirt और Lower अब एक ही जगह</p>
+  </section>
 
-<section class="products">
+  <section class="products">
 
-    <!-- T-Shirt -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500?text=T-Shirt"
-             alt="T-Shirt">
-
+    <div class="card">
+      <div class="product-image">👕</div>
+      <div class="info">
         <h3>Premium T-Shirt</h3>
+        <p>Stylish Cotton T-Shirt</p>
+        <div class="price">₹499</div>
 
-        <span class="price">₹499</span>
-        <span class="old-price">₹799</span>
-
-        <select>
-            <option>Size चुनें</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-            <option>XXL</option>
+        <select class="size" id="size1">
+          <option value="">Size चुनें</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
-        <a class="order-btn"
-           href="https://wa.me/918076912374text=Hello%20mujhe%20Premium%20T-Shirt%20order%20karni%20hai">
-           📲 WhatsApp पर Order करें
-        </a>
+        <button onclick="addToCart('Premium T-Shirt',499,'size1')">
+          🛒 Add to Cart
+        </button>
+      </div>
     </div>
 
+    <div class="card">
+      <div class="product-image">👖</div>
+      <div class="info">
+        <h3>Stylish Lower</h3>
+        <p>Comfortable Sports Lower</p>
+        <div class="price">₹599</div>
 
-    <!-- Lower -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500?text=Lower"
-             alt="Lower">
+        <select class="size" id="size2">
+          <option value="">Size चुनें</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+        </select>
 
+        <button onclick="addToCart('Stylish Lower',599,'size2')">
+          🛒 Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="product-image">👕</div>
+      <div class="info">
+        <h3>Oversize T-Shirt</h3>
+        <p>Trendy Oversize Style</p>
+        <div class="price">₹699</div>
+
+        <select class="size" id="size3">
+          <option value="">Size चुनें</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+        </select>
+
+        <button onclick="addToCart('Oversize T-Shirt',699,'size3')">
+          🛒 Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="product-image">👖</div>
+      <div class="info">
         <h3>Premium Lower</h3>
+        <p>Premium Quality Lower</p>
+        <div class="price">₹799</div>
 
-        <span class="price">₹599</span>
-        <span class="old-price">₹899</span>
-
-        <select>
-            <option>Size चुनें</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-            <option>XXL</option>
+        <select class="size" id="size4">
+          <option value="">Size चुनें</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
         </select>
 
-        <a class="order-btn"
-           href="https://wa.me/918076912374text=Hello%20mujhe%20Premium%20Lower%20order%20karna%20hai">
-           📲 WhatsApp पर Order करें
-        </a>
+        <button onclick="addToCart('Premium Lower',799,'size4')">
+          🛒 Add to Cart
+        </button>
+      </div>
     </div>
 
+  </section>
 
-    <!-- T-Shirt 2 -->
-    <div class="product">
-        <img src="https://via.placeholder.com/400x500?text=Black+T-Shirt"
-             alt="Black T-Shirt">
+  <section class="cart">
+    <h2>🛒 आपका Cart</h2>
 
-        <h3>Black T-Shirt</h3>
-
-        <span class="price">₹449</span>
-        <span class="old-price">₹699</span>
-
-        <select>
-            <option>Size चुनें</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-        </select>
-
-        <a class="order-btn"
-           href="https://wa.me/918076912374text=Hello%20mujhe%20Black%20T-Shirt%20order%20karni%20hai">
-           📲 WhatsApp पर Order करें
-        </a>
+    <div id="cartItems">
+      Cart अभी खाली है।
     </div>
 
-</section>
+    <div class="total">
+      Total: ₹<span id="total">0</span>
+    </div>
 
-<footer>
+    <button onclick="placeOrder()">
+      📦 Order करें
+    </button>
+  </section>
+
+  <footer>
     <p>© 2026 Rohit Fashion</p>
-    <p>Contact • WhatsApp • Delivery Available</p>
-</footer>
+    <p>आपका भरोसा, हमारी पहचान ❤️</p>
+  </footer>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(name, price, sizeId) {
+      let size = document.getElementById(sizeId).value;
+
+      if (size === "") {
+        alert("कृपया पहले Size चुनें!");
+        return;
+      }
+
+      cart.push({
+        name: name,
+        price: price,
+        size: size
+      });
+
+      total += price;
+      showCart();
+
+      alert(name + " Cart में Add हो गया!");
+    }
+
+    function showCart() {
+      let box = document.getElementById("cartItems");
+
+      if (cart.length === 0) {
+        box.innerHTML = "Cart अभी खाली है।";
+        return;
+      }
+
+      box.innerHTML = "";
+
+      cart.forEach(function(item, index) {
+        box.innerHTML += `
+          <div class="cart-item">
+            ${index + 1}. ${item.name} — Size: ${item.size}
+            — ₹${item.price}
+          </div>
+        `;
+      });
+
+      document.getElementById("total").innerText = total;
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert("पहले कोई Product Cart में Add करें!");
+        return;
+      }
+
+      alert(
+        "Order तैयार है!\\n\\n" +
+        "Total Amount: ₹" + total +
+        "\\n\\nअगले Step में हम WhatsApp Order और Customer Details जोड़ेंगे।"
+      );
+    }
+  </script>
 
 </body>
 </html>
